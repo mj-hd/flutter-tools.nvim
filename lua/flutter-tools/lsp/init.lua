@@ -192,7 +192,7 @@ local function get_server_config(user_config, callback)
     local debug_log = create_debug_log(user_config.debug)
     debug_log(fmt("dart_sdk_path: %s", root_path))
 
-    config.cmd = config.cmd or { paths.dart_bin, analysis_server_snapshot_path(root_path), "--lsp" }
+    config.cmd = config.cmd or { paths.dart_bin, analysis_server_snapshot_path(root_path), "--lsp", "--diagnostic-port=9999" }
 
     config.filetypes = { FILETYPE }
     config.capabilities = merge_config(defaults.capabilities, config.capabilities)
